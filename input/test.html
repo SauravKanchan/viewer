@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Page Title</title>
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js" type="text/javascript"></script>
+    <script src="https://bossanova.uk/jexcel/v3/jexcel.js"></script>
+    <script src="https://bossanova.uk/jsuites/v2/jsuites.js"></script>
+    <link rel="stylesheet" href="https://bossanova.uk/jsuites/v2/jsuites.css" type="text/css" />
+    <link rel="stylesheet" href="https://bossanova.uk/jexcel/v3/jexcel.css" type="text/css" />
+
+  </head>
+  <body>
+    <div id="mytable"></div>
+    <div id="spreadsheet"></div>
+    <script>
+      console.log("asdf")
+
+jexcel(document.getElementById('spreadsheet'), {
+  csv: 'https://www.stats.govt.nz/assets/Uploads/Annual-enterprise-survey/Annual-enterprise-survey-2018-financial-year-provisional/Download-data/annual-enterprise-survey-2018-financial-year-provisional-csv.csv',
+      csvHeaders:true,
+      tableOverflow:true
+
+});
+    </script>
+  </body>
+</html>
+
+
