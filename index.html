@@ -1,27 +1,25 @@
 <html>
-  <head>
-    <title>Page Title</title>
-    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js" type="text/javascript"></script>
-    <script src="https://bossanova.uk/jexcel/v3/jexcel.js"></script>
-    <script src="https://bossanova.uk/jsuites/v2/jsuites.js"></script>
-    <link rel="stylesheet" href="https://bossanova.uk/jsuites/v2/jsuites.css" type="text/css" />
-    <link rel="stylesheet" href="https://bossanova.uk/jexcel/v3/jexcel.css" type="text/css" />
+<script src="https://bossanova.uk/jexcel/v3/jexcel.js"></script>
+<link rel="stylesheet" href="https://bossanova.uk/jexcel/v3/jexcel.css" type="text/css" />
+<script src="https://bossanova.uk/jsuites/v2/jsuites.js"></script>
+<link rel="stylesheet" href="https://bossanova.uk/jsuites/v2/jsuites.css" type="text/css" />
 
-  </head>
-  <body>
-    <div id="mytable"></div>
-    <div id="spreadsheet"></div>
-    <script>
-      console.log("asdf")
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/jszip.js"></script>
+<script src="https://bossanova.uk/jexcel/v3/xlsx.js"></script>
 
-jexcel(document.getElementById('spreadsheet'), {
-  csv: 'https://www.stats.govt.nz/assets/Uploads/Annual-enterprise-survey/Annual-enterprise-survey-2018-financial-year-provisional/Download-data/annual-enterprise-survey-2018-financial-year-provisional-csv.csv',
-      csvHeaders:true,
-      tableOverflow:true
+<div id="spreadsheet4"></div>
 
-});
-    </script>
-  </body>
+<script>
+  jexcel.fromSpreadsheet('https://github.com/SauravKanchan/viewer/raw/master/input/test.xls', function(result) {
+    if (! result.length) {
+      console.error('JEXCEL: Something went wrong.');
+    } else {
+      if (result.length == 1) {
+        jexcel(document.getElementById('spreadsheet4'), result[0]);
+      } else {
+        jexcel.createTabs(document.getElementById('spreadsheet4'), result);
+      }
+    }
+  });
+</script>
 </html>
-
-
