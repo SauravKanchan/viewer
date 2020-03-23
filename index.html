@@ -6,20 +6,31 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/jszip.js"></script>
 <script src="https://bossanova.uk/jexcel/v3/xlsx.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.3/jquery.csv.min.js"></script>
 
 <div id="spreadsheet4" oncontextmenu="return false;"></div>
-
+<label for="myfile">Select a file:</label>
+<input type="file" id="csvInput" name="myfile">
 <script>
-  jexcel.fromSpreadsheet('https://github.com/SauravKanchan/viewer/raw/master/input/test.xlsx', function(result) {
-    if (! result.length) {
-      console.error('JEXCEL: Something went wrong.');
-    } else {
-      if (result.length == 1) {
-        jexcel(document.getElementById('spreadsheet4'), result[0]);
-      } else {
-        jexcel.createTabs(document.getElementById('spreadsheet4'), result);
-      }
+
+var reader = new FileReader();
+$("#csvInput").change(function(){
+csvFile= this.files[0];
+ if (csvFile) {
+    reader.readAsText(csvFile, "UTF-8")
+    reader.onload = function (evt) {
+      data = $.csv.toArrays(evt.target.result)
+      jexcel(document.getElementById('spreadsheet4'), {
+        data:data    
+      });
+
     }
-  });
+  }
+})
+
 </script>
 </html>
