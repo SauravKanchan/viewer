@@ -13,12 +13,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.3/jquery.csv.min.js"></script>
 
 <div id="spreadsheet4" oncontextmenu="return false;"></div>
-<label for="myfile">Select a file:</label>
+
+<label for="myfile">Select a CSV file:</label>
 <input type="file" id="csvInput" name="myfile">
 <script>
 
 var reader = new FileReader();
 $("#csvInput").change(function(){
+
 csvFile= this.files[0];
  if (csvFile) {
     reader.readAsText(csvFile, "UTF-8")
@@ -31,6 +33,9 @@ csvFile= this.files[0];
     }
   }
 })
+
+
+
 
 </script>
 </html>
